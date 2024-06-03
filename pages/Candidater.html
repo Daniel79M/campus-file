@@ -11,22 +11,33 @@
 </head>
 <body>
     <section class="header3">
-        <nav>
-            <a href="" class="logo"><h1>Lorem</h1></a>
+        <a href="" class="logo" style="color: #FFF; margin-left:20px ;"><h1>Lorem</h1></a>
+        <nav class="links"> 
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
-              <ul>
-                <li><a href="../index.html">Acceuil </a></li>
-                <li><a href="../pages/NosArticle.html">Nos articles</a></li>
-                <li><a href="../pages/apropos.html">En savoir plus </a></li>
-                <li><a href="../pages/Documentation.html">Documentation</a></li>
-                <li> <a href="../pages/Candidater.html">Candidater</a></li>
-              </ul>
-             
+                <ul>
+                    <li><a href="/index.html">Acceuil </a></li>
+                    <li><a href="./NosArticle.html">Nos articles</a></li>
+                    <li><a href="./apropos.html">En savoir plus </a></li>
+                    <li><a href="./Documentation.html">Documentation</a></li>
+                    <li> <a href="./Candidater.html">Candidater</a></li>
+                </ul>
+                
             </div>
-            
-            <i class="fa fa-bars" onclick="showMenu()"></i>
         </nav>
+        <nav class="links-xm"> 
+            <a href="" class="logo"><h1>Lorem</h1></a>
+            <div class="nav-links-xm" id="navLinks">
+                <ul>
+                    <li><a href="/index.html">Acceuil </a></li>
+                    <li><a href="./NosArticle.html">Nos articles</a></li>
+                    <li><a href="./apropos.html">En savoir plus </a></li>
+                    <li><a href="./Documentation.html">Documentation</a></li>
+                    <li> <a href="./Candidater.html">Candidater</a></li>
+                </ul>
+                
+            </div>
+        </nav>
+        <i class="fa fa-bars menuburger"></i> 
     </section>
     <br />
     <section class="form">
@@ -125,14 +136,36 @@
       
     </section>
     <script>
-        var navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
-        function hideMenu(){
-            navLinks.style.right = "-200px";
-        }
+        // var navLinks = document.getElementById("navLinks");
+        // function showMenu(){
+        //     navLinks.style.right = "0";
+        // }
+        // function hideMenu(){
+        //     navLinks.style.display = "none";
+        //     document.body.style.backgroundColor = "blue";
+            
+        // }
+        (function () {
+            let sidebarOpened = false;
+            let verif = false;
+            let menu = document.querySelector('.links');
+            let button = document.querySelector('.menuburger');
+            button.addEventListener('click', function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                menu.style.display = 'block';
+                document.body.classList.add('has-sidebar');
+                sidebarOpened = true;
+            })
 
+            document.body.addEventListener('click', function () {
+                if (sidebarOpened) {
+                    document.body.classList.remove('has-sidebar');
+                }
+    
+            })
+            })() 
+        // navLinks.style.display ="none";
     </script>
 </body>
 </html>

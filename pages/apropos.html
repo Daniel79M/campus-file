@@ -17,28 +17,41 @@
   </head>
   <body>
     <section class="header-aPropos">
-      <nav>
-        <a href="" class="logo"><h1>Lorem</h1></a>
-        <div class="nav-links" id="navLinks">
-          <i class="fa fa-times" onclick="hideMenu()"></i>
-          <ul>
-            <li><a href="../index.html">Acceuil </a></li>
-            <li><a href="../pages/NosArticle.html">Nos articles</a></li>
-            <li><a href="../pages/apropos.html">En savoir plus </a></li>
-            <li><a href="../pages/Documentation.html">Documentation</a></li>
-            <li> <a href="../pages/Candidater.html">Candidater</a></li>
-          </ul>
-          
-        </div>
-        <div class="text-box">
-            <h1>Name of university </h1>
-            <p>Lorem ipsum adipisicing elit. Ut incidunt deleniti hic sed error ipsam ullam perspiciatis? Deleniti, et odit reiciendis <br/> atque voluptas, saepe quia, ducimus eveniet vero libero fuga.</p>
-            <a href="" class="hero-buttom">En Savoir Plus</a>
-        </div>
-        
-        <i class="fa fa-bars" onclick="showMenu()"></i>
+      <a href="" class="logo" style="color: #FFF; margin-left:20px ;"><h1>Lorem</h1></a>
+      <nav class="links"> 
+         
+          <div class="nav-links" id="navLinks">
+              <ul>
+                <li><a href="/index.html">Acceuil </a></li>
+                <li><a href="./NosArticle.html">Nos articles</a></li>
+                <li><a href="./apropos.html">En savoir plus </a></li>
+                <li><a href="./Documentation.html">Documentation</a></li>
+                <li> <a href="./Candidater.html">Candidater</a></li>
+              </ul>
+              
+          </div>
       </nav>
-    </section>
+      <nav class="links-xm"> 
+          <a href="" class="logo"><h1>Lorem</h1></a>
+          <div class="nav-links-xm" id="navLinks">
+              <ul>
+                <li><a href="/index.html">Acceuil </a></li>
+                    <li><a href="./NosArticle.html">Nos articles</a></li>
+                    <li><a href="./apropos.html">En savoir plus </a></li>
+                    <li><a href="./Documentation.html">Documentation</a></li>
+                    <li> <a href="./Candidater.html">Candidater</a></li>
+              </ul>
+              
+          </div>
+      </nav>
+      <i class="fa fa-bars menuburger"></i> 
+      <div class="text-box">
+          <h1>Name of university </h1>
+          <p>Lorem ipsum adipisicing elit. Ut incidunt deleniti hic sed error ipsam ullam perspiciatis? Deleniti, et odit reiciendis <br/> atque voluptas, saepe quia, ducimus eveniet vero libero fuga.</p>
+          <a href="" class="hero-buttom">En Savoir Plus</a>
+      </div>
+  
+  </section>
     <section class="Nos-Faculté">
       <h3>Nos Facultés</h3>
       <br />
@@ -70,7 +83,7 @@
         </div>
       </div>
       <div>
-        <img src="../Assets/diplome-femme.jpg" alt="Faculté img" width="90%" />
+        <img src="../Assets/diplome-femme.jpg" alt="Faculté img" width="100%" />
       </div>
     </section>
     <section class="Nos-Faculté2">
@@ -78,9 +91,10 @@
         <img src="../Assets/university-105709_1280.jpg" alt="Faculté img" width="100%" />
       </div>
       <div class="containt2">
-        <h2>Nous donnons des cours en </h2>
+        
         <table width="100%">
             <tr > 
+                <h2>Nous donnons des cours en </h2>
                 <td>
                     <li>Lorem ipsum.</li>
                     <br />
@@ -158,7 +172,7 @@
                 <img src="../Assets/ecolier-tenue-copie-espace-cahier.jpg" >
                 <div>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore molestias quibusdam quaerat nam fugiat omnis. Dicta adipisci explicabo ea totam, sed quibusdam commodi numquam nemo, sunt quasi debitis error expedita? </p>
-                    <h3>Daniel ATTOH</h3>
+                    <h3>Eliezer AMESSE</h3>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -171,7 +185,7 @@
                 <img src="../Assets/icons8-utilisateur-50.png" >
                 <div>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore molestias quibusdam quaerat nam fugiat omnis. Dicta adipisci explicabo ea totam, sed quibusdam commodi numquam nemo, sunt quasi debitis error expedita? </p>
-                    <h3>Elom GLE</h3>
+                    <h3>Ines GBADOE</h3>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -184,15 +198,27 @@
         <a href="" class="hero-buttom1">Voir Plus</a>
     </section>
     <script>
-        var navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
-        function hideMenu(){
-            navLinks.style.right = "-200px";
-        }
+      (function () {
+          let sidebarOpened = false;
+          let verif = false;
+          let menu = document.querySelector('.links');
+          let button = document.querySelector('.menuburger');
+          button.addEventListener('click', function(e){
+              e.stopPropagation();
+              e.preventDefault();
+              menu.style.display = 'block';
+              document.body.classList.add('has-sidebar');
+              sidebarOpened = true;
+          })
 
-    </script>
+          document.body.addEventListener('click', function () {
+              if (sidebarOpened) {
+                  document.body.classList.remove('has-sidebar');
+              }
+  
+          })
+          })()
+  </script>
 <br /><br /><br />
     <section class="footer">
       <div>
@@ -246,10 +272,12 @@
         </div>
         <br />
         <div class="Socials">
-          <img src="../Assets/icons8-linkedin-50.png" alt="logo Linkedin" /><img
-            src="../Assets/icons8-instagram-50.png"
-            alt="logo instagram "
-          /><img
+            <a href=""><img src="../Assets/icons8-linkedin-50.png" alt="logo Linkedin" /></a>
+            <a href=""> <img
+                src="../Assets/icons8-instagram-50.png"
+                alt="logo instagram "
+              /></a>
+         <img
             src="../Assets/icons8-facebook-50 (1).png"
             alt="logo facebook"
           /><img src="../Assets/icons8-youtube-50.png" alt="logo youtube" />
@@ -257,7 +285,7 @@
         <br />
         <span
           ><a href=""
-          style="color: #FFF;" ><i class="fa fa-copyright" aria-hidden="true">copyrigth </i> By
+          style="color: #FFF;" ><i class="fa fa-copyright" aria-hidden="true"> copyrigth </i> By
             Décaniel</a
           ></span
         >

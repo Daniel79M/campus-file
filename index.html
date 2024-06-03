@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,9 @@
 </head>
 <body>
     <section class="header">
-        <nav>
-            <a href="" class="logo"><h1>Lorem</h1></a>
+        <a href="" class="logo" style="color: #FFF; margin-left:20px ;"><h1>Lorem</h1></a>
+        <nav class="links"> 
             <div class="nav-links" id="navLinks">
-                <i class="fa fa-times" onclick="hideMenu()"></i>
                 <ul>
                     <li><a href="/index.html">Acceuil </a></li>
                     <li><a href="./pages/NosArticle.html">Nos articles</a></li>
@@ -24,9 +23,21 @@
                 </ul>
                 
             </div>
-           
-            <i class="fa fa-bars" onclick="showMenu()"></i> 
         </nav>
+        <nav class="links-xm"> 
+            <a href="" class="logo"><h1>Lorem</h1></a>
+            <div class="nav-links-xm" id="navLinks">
+                <ul>
+                    <li><a href="/index.html">Acceuil </a></li>
+                    <li><a href="./pages/NosArticle.html">Nos articles</a></li>
+                    <li><a href="./pages/apropos.html">En savoir plus </a></li>
+                    <li><a href="./pages/Documentation.html">Documentation</a></li>
+                    <li> <a href="./pages/Candidater.html">Candidater</a></li>
+                </ul>
+                
+            </div>
+        </nav>
+        <i class="fa fa-bars menuburger"></i> 
         <div class="text-box">
             <h1>Name of university </h1>
             <p>Lorem ipsum adipisicing elit. Ut incidunt deleniti hic sed error ipsam ullam perspiciatis? Deleniti, et odit reiciendis <br/> atque voluptas, saepe quia, ducimus eveniet vero libero fuga.</p>
@@ -35,7 +46,6 @@
     
     </section>
     <section class="Nos-Cours">
-
         <h1>Nos Cours</h1>
         <br/>
         <div class="row">
@@ -78,14 +88,35 @@
         
     </section>
     <script>
-        var navLinks = document.getElementById("navLinks");
-        function showMenu(){
-            navLinks.style.right = "0";
-        }
-        function hideMenu(){
-            navLinks.style.right = "-200px";
+        // var navLinks = document.getElementById("navLinks");
+        // function showMenu(){
+        //     navLinks.style.right = "0";
+        // }
+        // function hideMenu(){
+        //     navLinks.style.display = "none";
+        //     document.body.style.backgroundColor = "blue";
             
-        }
+        // }
+        (function () {
+            let sidebarOpened = false;
+            let verif = false;
+            let menu = document.querySelector('.links');
+            let button = document.querySelector('.menuburger');
+            button.addEventListener('click', function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                menu.style.display = 'block';
+                document.body.classList.add('has-sidebar');
+                sidebarOpened = true;
+            })
+
+            document.body.addEventListener('click', function () {
+                if (sidebarOpened) {
+                    document.body.classList.remove('has-sidebar');
+                }
+    
+            })
+            })() 
         // navLinks.style.display ="none";
     </script>
     <section class="cta">

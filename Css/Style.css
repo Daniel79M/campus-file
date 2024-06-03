@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body {
+    position: relative;
+}
 @font-face {
     font-family: roboto-bold;
     src: url(../Fonts/Roboto-Bold.ttf);
@@ -34,14 +37,20 @@
     background-size: cover;
     position: relative;
 }
-
 .logo{
     font-family:italianno-Regular ;
     text-decoration: none !important;
 }
+
+.header i{
+    display: none;
+}
+.header3 i{
+    display: none;
+}
+
 nav{
     display: flex;
-    padding: 2% 6%;
     justify-content:space-between;
     align-items: center;
 }
@@ -55,6 +64,18 @@ nav a{
     text-align: center;
     display: inline-block;
 }
+
+.links{
+    display: none;
+    transition: transform 0.3s;
+    position: fixed;
+    right: -220px;
+    top: 0;
+    width: fit-content;
+    height: fit-content;
+    z-index: 3;
+}
+
 .button{
     text-align: center;
     border: 1px solid #fff;
@@ -70,7 +91,7 @@ nav a{
 .hero-buttom{
     display: inline-block;
     text-decoration: none;
-    color: #000;
+    color: #FFF;
     border: 3px solid #04083A;
     padding: 12px 34px;
     font-size: 15px;
@@ -85,20 +106,34 @@ nav a{
     font-size: 15px;
     color: #FFF;
 }
+.links-xm{
+    padding: 2% 6%;
+}
 
-.nav-links ul li{
+.nav-links-xm ul li{
     list-style: none;
     display: inline-block;
     padding: 8px 12px;
     position: relative;
 }
 
-nav .fa{
+.nav-links-xm{
+    flex: 1;
+    text-align: center;
+    display: inline-block;
+    
+}
+
+.menuburger{
     display: none;
     color: #fff;
     margin: 10px;
     font-size: 22px;
     cursor: pointer;
+    position: absolute;
+    top: 2%;
+    right: 6%;
+    
 }
 
 .text-box{
@@ -328,6 +363,9 @@ h3{
     display: flex;
     padding:10px;
 }
+.Socials :hover a{
+    color:#FFF;
+}
 .footer div{
     width: 90%;
 }
@@ -338,6 +376,23 @@ h3{
     color: #000;
     text-align: center;
 }
+
+.nav-links {
+    background:#04083A;
+    width: 200px;
+    height: 100vh;
+}
+
+.nav-links ul li {
+    margin-left: 20px;
+    margin-top: 30px;
+    list-style: none;
+}
+
+.has-sidebar .links {
+    transform: translateX(-220px);
+}
+
                                                 /* la page A Propos*/
 .header-aPropos{
     min-height: 100vh;
@@ -386,8 +441,8 @@ h3{
 
 .Nos-Faculté2{
     display: grid;
-    grid-template-columns:  1fr 600px;
-    padding: 10px 40px ;
+    grid-template-columns:  1fr 1fr;
+    padding: 10px 40px;
     justify-content: center;
 }
 .testimonials{
@@ -579,12 +634,17 @@ h3{
         padding: 0 40px 0 70px;
 
     }
+
     .text-box h1{
         font-size: 20px;
-    }.nav-links ul li{
+    }
+    .nav-links ul li{
         display: block;
     }
-    .nav-links{
+    .links-xm{
+        display: none;
+    }
+    /* .nav-links{
       position: absolute;
       background: #04083ab4;
       height: 100vh;
@@ -594,9 +654,21 @@ h3{
       text-align: left;
       z-index: 2;
       transition: 1s;
+    } */
+    .header i{
+        display: initial;
     }
+
+    .header3 i{
+        display: initial;
+    }
+
     .Nos-Faculté{
         grid-template-columns: 1fr;
+    }
+    .Nos-Faculté2{
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     body{
         overflow-x:hidden;
@@ -619,7 +691,7 @@ h3{
         width: 400px;
     }
     .article{
-        padding: auto;
+        padding: 0;
     }
     .Message-doc{
         width:  100%;
